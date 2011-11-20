@@ -7,13 +7,21 @@
 #define IN_SECTION(x) __declspec(allocate(x))
 #define LOADABLE	IN_SECTION(".format_loader$m")
 #else
-#define IN_SECTION(x) __attribute__((section(#x)))
+
+#define IN_SECTION(x) __attribute__((section(x)))
+
+#if defined(__APPLE__) && defined(__MACH__)
+// MachO requires special section names that include the segment name
+#define LOADABLE    IN_SECTION("__TEXT, format_loader")
+#else
 #define LOADABLE	IN_SECTION("format_loader")
+#endif
+
 #endif
 
 #define FORMAT(ext_info)	\
 	ext_info ext_info##_instance;	\
-	LOADABLE ext_info* ext_info##_ptr = &##ext_info##_instance
+	LOADABLE extension_info* ext_info##_ptr = &(ext_info ## _instance)
 
 // Interface to register/manage an extension (format, whatever)
 struct extension_info {

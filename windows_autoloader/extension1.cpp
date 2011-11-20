@@ -6,6 +6,8 @@ namespace {
 	class extension1_info : public extension_info
 	{
 	public:
+        extension1_info() : m_ext_name("extension1") {}
+
 		void register_extension()
 		{
 			std::cout << "Registering extension 1" << std::endl;
@@ -13,13 +15,17 @@ namespace {
 
 		std::string const& get_extension_name() const
 		{
-			return "extension1";
+            return m_ext_name;
 		}
+    private:
+        std::string m_ext_name;
 	};
 
 	class extension2_info : public extension_info
 	{
 	public:
+        extension2_info() : m_ext_name("extension2") {}
+
 		void register_extension()
 		{
 			std::cout << "Registering extension 2" << std::endl;
@@ -27,13 +33,17 @@ namespace {
 
 		std::string const& get_extension_name() const
 		{
-			return "extension2";
+            return m_ext_name;
 		}
+    private:
+        std::string m_ext_name;
 	};
 
 	class extension3_info : public extension_info
 	{
 	public:
+        extension3_info() : m_ext_name("extension3") {}
+
 		void register_extension()
 		{
 			std::cout << "Registering extension 3" << std::endl;
@@ -41,13 +51,17 @@ namespace {
 
 		std::string const& get_extension_name() const
 		{
-			return "extension3";
+            return m_ext_name;
 		}
+    private:
+        std::string m_ext_name;
 	};
 
 	class extension4_info : public extension_info
 	{
 	public:
+        extension4_info() : m_ext_name("extension4") {}
+
 		void register_extension()
 		{
 			std::cout << "Registering extension 4" << std::endl;
@@ -55,8 +69,10 @@ namespace {
 
 		std::string const& get_extension_name() const
 		{
-			return "extension4";
+            return m_ext_name;
 		}
+    private:
+        std::string m_ext_name;
 	};
 
 	extension1_info fmt1_info;
