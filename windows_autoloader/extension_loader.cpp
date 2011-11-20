@@ -95,16 +95,16 @@ extension_info **_ext_end = (extension_info **)__stop_format_loader;
 
 unsigned load_extensions()
 {
-	extension_info **ext_cur = _ext_start;
-	unsigned ext_count = 0;
+    extension_info **ext_cur = _ext_start;
+    unsigned ext_count = 0;
 
-	while (ext_cur != _ext_end) {
-		if (*ext_cur) {
-			(*ext_cur)->register_extension();
-			ext_count++;
-		}
-		++ext_cur;
-	}
+    while (ext_cur != _ext_end) {
+        if (*ext_cur) {
+            (*ext_cur)->register_extension();
+            ext_count++;
+        }
+        ++ext_cur;
+    }
 
-	return ext_count;
+    return ext_count;
 }
