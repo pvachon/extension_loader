@@ -82,6 +82,11 @@ struct get_ext_section {
 get_ext_section get_ext;
 
 #else // Sane cases that use ELF and COFF maybe?
+
+// Symbols created by gcc implicitly
+extern char __start_format_loader[];
+extern char __stop_format_loader[];
+
 extension_info **_ext_start = (extension_info **)__start_format_loader;
 extension_info **_ext_end = (extension_info **)__stop_format_loader;
 #endif

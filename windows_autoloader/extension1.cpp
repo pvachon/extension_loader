@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+// A simple test wrapper/demonstration of how to enumerate a list
+// of callable classes, with the list being generated at compile and
+// link time, rather than requiring any programmer intervention.
 namespace {
 	class extension1_info : public extension_info
 	{
@@ -75,18 +78,14 @@ namespace {
         std::string m_ext_name;
 	};
 
-	extension1_info fmt1_info;
-	extension2_info fmt2_info;
-	extension3_info fmt3_info;
+	extension1_info fmt1_info; // For usage case 1
 }
 
+// Usage 1: declare manually, use LOADABLE attribute macro
 LOADABLE
 extension_info *format1 = &fmt1_info;
 
-LOADABLE
-extension_info *format2 = &fmt2_info;
-
-LOADABLE
-extension_info *format3 = &fmt3_info;
-
+// Usage 2: a macro that hides all the gorey details
+FORMAT(extension2_info);
+FORMAT(extension3_info);
 FORMAT(extension4_info);

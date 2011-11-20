@@ -19,6 +19,10 @@
 
 #endif
 
+// Helper macro. Given the name of a class that inherits from
+// extension info, create a global instance of the class and a
+// pointer to this instance to be used during enumeration and
+// initialization.
 #define FORMAT(ext_info)	\
 	ext_info ext_info##_instance;	\
 	LOADABLE extension_info* ext_info##_ptr = &(ext_info ## _instance)
